@@ -1,0 +1,23 @@
+PROGRAM
+
+# Declare two empty lists to store lines
+lines = []
+newlines = []
+
+# Get the Name of the File and Search term
+file = input('Enter the name of the file : ')
+search = input('Enter the search term : ')
+# Open file in read mode
+with open(file, 'r') as f:
+    for i in f:                         # for every line in file
+        lines.append(i.rstrip('\n')) # append line in list after striping new line character
+
+for index, i in enumerate(lines): # for every value in list enumerate to perform indexing
+    if search.lower() in i.lower(): # for every value in list search for matching word
+        newlines.append(f'{index+1}: {i}') # if match is found insert the line along with index position + 1
+        # index + 1 corresponds to the exact line number in file since all index start at 0 and there is not line 0
+        print(index+1, I) # print result
+
+with open('output.txt', 'w') as f: # Open a new file in write mode
+    for i in newlines: # for every element in list
+        f.write(i+'\n') # write it to file. One list element at a time
